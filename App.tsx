@@ -132,39 +132,39 @@ const LoginScreen = () => {
   }
 
   const TabButton = ({ role, icon: Icon, label }: { role: UserRole, icon: any, label: string }) => (
-      <button 
+      <button
           type="button"
           onClick={() => setActiveTab(role)}
-          className={`flex-1 flex flex-col items-center justify-center p-3 rounded-xl transition-all duration-200 border-2 ${
-              activeTab === role 
-              ? 'bg-emerald-50 border-emerald-500 text-emerald-700 shadow-sm' 
+          className={`flex-1 flex flex-col items-center justify-center p-4 rounded-xl transition-all duration-200 border-2 ${
+              activeTab === role
+              ? 'bg-emerald-50 border-emerald-500 text-emerald-700 shadow-sm'
               : 'bg-slate-50 border-transparent text-slate-400 hover:bg-slate-100'
           }`}
       >
-          <Icon size={20} className="mb-1" />
-          <span className="text-[10px] font-bold uppercase tracking-wide">{label}</span>
+          <Icon size={22} className="mb-2" />
+          <span className="text-xs font-bold uppercase tracking-wide">{label}</span>
       </button>
   );
 
   return (
-    <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-slate-50 flex items-center justify-center p-6">
       <div className="bg-white p-8 rounded-3xl shadow-xl max-w-md w-full relative overflow-hidden">
         {/* Decorative background blur */}
         <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-emerald-500 to-blue-500"></div>
-        
-        <div className="flex flex-col items-center mb-6 text-center">
-            <div className="w-14 h-14 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-xl flex items-center justify-center text-white mb-3 shadow-lg">
-                <Building size={28} />
+
+        <div className="flex flex-col items-center mb-8 text-center">
+            <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-2xl flex items-center justify-center text-white mb-4 shadow-lg">
+                <Building size={32} />
             </div>
-            <h1 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Smart Canteen</h1>
-            <h2 className="text-xl font-bold text-slate-800">
+            <h1 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-2">Smart Canteen</h1>
+            <h2 className="text-2xl font-bold text-slate-800">
                 {isRegistering ? 'Create Account' : 'Welcome Back'}
             </h2>
         </div>
 
         {/* Role Tabs */}
         {isRegistering && (
-            <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
+            <div className="flex gap-3 mb-8 overflow-x-auto pb-2">
                 <TabButton role={UserRole.STUDENT} icon={GraduationCap} label="Student" />
                 <TabButton role={UserRole.PARENT} icon={Users} label="Parent" />
                 <TabButton role={UserRole.STAFF} icon={ScanLine} label="Staff" />
@@ -172,32 +172,32 @@ const LoginScreen = () => {
             </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-5">
             {isRegistering && (
                 <>
                     <div>
-                        <label className="block text-xs font-bold text-slate-700 mb-1.5 ml-1">Full Name</label>
+                        <label className="block text-sm font-bold text-slate-700 mb-2 ml-1">Full Name</label>
                         <div className="relative">
-                            <UserIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" size={18} />
-                            <input 
-                                type="text" 
+                            <UserIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" size={20} />
+                            <input
+                                type="text"
                                 value={fullName}
                                 onChange={(e) => setFullName(e.target.value)}
                                 placeholder="Juan Dela Cruz"
-                                className="w-full bg-slate-100 border-none rounded-xl py-3.5 pl-11 pr-4 text-sm focus:ring-2 focus:ring-emerald-500 outline-none transition"
+                                className="w-full bg-slate-100 border-none rounded-xl py-4 pl-12 pr-4 text-base focus:ring-2 focus:ring-emerald-500 outline-none transition"
                                 required
                             />
                         </div>
                     </div>
 
                     {activeTab === UserRole.STUDENT && (
-                        <div className="grid grid-cols-2 gap-3">
+                        <div className="grid grid-cols-2 gap-4">
                             <div>
-                                <label className="block text-xs font-bold text-slate-700 mb-1.5 ml-1">Grade</label>
-                                <select 
+                                <label className="block text-sm font-bold text-slate-700 mb-2 ml-1">Grade</label>
+                                <select
                                     value={gradeLevel}
                                     onChange={(e) => setGradeLevel(e.target.value)}
-                                    className="w-full bg-slate-100 border-none rounded-xl py-3.5 px-4 text-sm focus:ring-2 focus:ring-emerald-500 outline-none transition appearance-none"
+                                    className="w-full bg-slate-100 border-none rounded-xl py-4 px-4 text-base focus:ring-2 focus:ring-emerald-500 outline-none transition appearance-none"
                                 >
                                     {GRADE_LEVELS.map(g => (
                                         <option key={g.value} value={g.value}>{g.label}</option>
@@ -205,13 +205,13 @@ const LoginScreen = () => {
                                 </select>
                             </div>
                             <div>
-                                <label className="block text-xs font-bold text-slate-700 mb-1.5 ml-1">Section</label>
-                                <input 
-                                    type="text" 
+                                <label className="block text-sm font-bold text-slate-700 mb-2 ml-1">Section</label>
+                                <input
+                                    type="text"
                                     value={section}
                                     onChange={(e) => setSection(e.target.value)}
                                     placeholder="e.g. A"
-                                    className="w-full bg-slate-100 border-none rounded-xl py-3.5 px-4 text-sm focus:ring-2 focus:ring-emerald-500 outline-none transition"
+                                    className="w-full bg-slate-100 border-none rounded-xl py-4 px-4 text-base focus:ring-2 focus:ring-emerald-500 outline-none transition"
                                 />
                             </div>
                         </div>
@@ -220,30 +220,30 @@ const LoginScreen = () => {
             )}
 
             <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1.5 ml-1">Email Address</label>
+                <label className="block text-sm font-bold text-slate-700 mb-2 ml-1">Email Address</label>
                 <div className="relative">
-                    <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" size={18} />
-                    <input 
-                        type="email" 
+                    <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" size={20} />
+                    <input
+                        type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="you@school.edu"
-                        className="w-full bg-slate-100 border-none rounded-xl py-3.5 pl-11 pr-4 text-sm focus:ring-2 focus:ring-emerald-500 outline-none transition"
+                        className="w-full bg-slate-100 border-none rounded-xl py-4 pl-12 pr-4 text-base focus:ring-2 focus:ring-emerald-500 outline-none transition"
                         required
                     />
                 </div>
             </div>
 
             <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1.5 ml-1">Password</label>
+                <label className="block text-sm font-bold text-slate-700 mb-2 ml-1">Password</label>
                 <div className="relative">
-                    <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" size={18} />
-                    <input 
-                        type="password" 
+                    <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" size={20} />
+                    <input
+                        type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         placeholder="••••••••"
-                        className="w-full bg-slate-100 border-none rounded-xl py-3.5 pl-11 pr-4 text-sm focus:ring-2 focus:ring-emerald-500 outline-none transition"
+                        className="w-full bg-slate-100 border-none rounded-xl py-4 pl-12 pr-4 text-base focus:ring-2 focus:ring-emerald-500 outline-none transition"
                         required
                     />
                 </div>
@@ -251,56 +251,56 @@ const LoginScreen = () => {
 
             {isRegistering && (
                 <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1.5 ml-1">Confirm Password</label>
+                    <label className="block text-sm font-bold text-slate-700 mb-2 ml-1">Confirm Password</label>
                     <div className="relative">
-                        <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" size={18} />
-                        <input 
-                            type="password" 
+                        <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" size={20} />
+                        <input
+                            type="password"
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
                             placeholder="••••••••"
-                            className="w-full bg-slate-100 border-none rounded-xl py-3.5 pl-11 pr-4 text-sm focus:ring-2 focus:ring-emerald-500 outline-none transition"
+                            className="w-full bg-slate-100 border-none rounded-xl py-4 pl-12 pr-4 text-base focus:ring-2 focus:ring-emerald-500 outline-none transition"
                             required
                         />
                     </div>
                 </div>
             )}
 
-            {error && <div className="text-red-500 text-xs text-center font-medium bg-red-50 py-2 rounded-lg">{error}</div>}
+            {error && <div className="text-red-500 text-sm text-center font-medium bg-red-50 py-3 rounded-xl">{error}</div>}
 
-            <button 
+            <button
                 type="submit"
                 disabled={isSubmitting || loadingAuth}
-                className="w-full bg-emerald-600 text-white font-bold py-3.5 rounded-xl hover:bg-emerald-700 transition shadow-lg shadow-emerald-200 flex items-center justify-center gap-2"
+                className="w-full bg-emerald-600 text-white font-bold py-4 rounded-xl hover:bg-emerald-700 transition shadow-lg shadow-emerald-200 flex items-center justify-center gap-2 text-base"
             >
                 {isSubmitting ? <Loader2 className="animate-spin" size={20} /> : (isRegistering ? 'Create Account' : 'Log In')}
             </button>
 
-            <div className="relative flex py-2 items-center">
+            <div className="relative flex py-3 items-center">
                 <div className="flex-grow border-t border-slate-200"></div>
-                <span className="flex-shrink-0 mx-4 text-slate-400 text-xs">OR</span>
+                <span className="flex-shrink-0 mx-4 text-slate-400 text-sm font-medium">OR</span>
                 <div className="flex-grow border-t border-slate-200"></div>
             </div>
 
-            <button 
+            <button
                 type="button"
                 onClick={handleGoogleLogin}
-                className="w-full bg-white border border-slate-200 text-slate-700 font-bold py-3.5 rounded-xl hover:bg-slate-50 transition flex items-center justify-center gap-2"
+                className="w-full bg-white border-2 border-slate-200 text-slate-700 font-bold py-4 rounded-xl hover:bg-slate-50 transition flex items-center justify-center gap-3 text-base"
             >
-                <img src="https://www.svgrepo.com/show/475656/google-color.svg" className="w-5 h-5" alt="Google" />
+                <img src="https://www.svgrepo.com/show/475656/google-color.svg" className="w-6 h-6" alt="Google" />
                 {isRegistering ? 'Sign up with Google' : 'Sign in with Google'}
             </button>
         </form>
 
-        <div className="mt-6 text-center">
-            <button 
+        <div className="mt-8 text-center">
+            <button
                 onClick={() => {
                     setIsRegistering(!isRegistering);
                     setError('');
                     setEmail('');
                     setPassword('');
                 }}
-                className="text-sm text-slate-600 hover:text-emerald-600 font-medium transition"
+                className="text-sm text-slate-600 hover:text-emerald-600 font-semibold transition"
             >
                 {isRegistering ? "Already have an account? Log In" : "Don't have an account? Register"}
             </button>
