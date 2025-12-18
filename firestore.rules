@@ -1,0 +1,86 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper function to get current user data
+    function getUserData() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
+    }
+
+    // Helper: Check if user has specific role
+    function hasRole(role) {
+      return getUserData().role == role;
+    }
+
+    // Helper: Check if user is parent of the target student
+    function isParentOf(studentId) {
+      return getUserData().role == 'PARENT' && studentId in getUserData().linkedStudentIds;
+    }
+
+    // --- Products (Menu) ---
+    match /products/{productId} {
+      allow read: if true;
+      allow create, update, delete: if request.auth != null && (hasRole('ADMIN') || hasRole('STAFF'));
+    }
+
+    // --- Users ---
+    match /users/{userId} {
+      allow create: if request.auth != null && request.auth.uid == userId;
+      
+      // Allow update if:
+      // 1. User updating themselves
+      // 2. Admin/Staff updating anyone
+      // 3. Parent updating their linked student (e.g. balance deduction)
+      allow update: if request.auth != null && (
+        request.auth.uid == userId || 
+        hasRole('ADMIN') || 
+        hasRole('STAFF') ||
+        isParentOf(userId)
+      );
+      
+      allow read: if request.auth != null; 
+    }
+
+    // --- Orders ---
+    match /orders/{orderId} {
+      allow read: if request.auth != null;
+      
+      allow create: if request.auth != null && (
+        request.resource.data.userId == request.auth.uid || 
+        isParentOf(request.resource.data.userId)
+      );
+      
+      allow update: if request.auth != null && (hasRole('ADMIN') || hasRole('STAFF'));
+    }
+
+    // --- Transactions ---
+    match /transactions/{txnId} {
+      // Read: Own txns, Admin/Staff, or Parent viewing Child's txns
+      // Note: 'resource.data.userId' exists on existing docs. 
+      // For list queries, rules apply to the potential result set.
+      allow read: if request.auth != null && (
+        resource.data.userId == request.auth.uid || 
+        hasRole('ADMIN') || 
+        hasRole('STAFF') ||
+        isParentOf(resource.data.userId)
+      );
+      
+      // Create: User (top-up/order) or System/Admin. 
+      // Allow if creating for self OR creating for linked student (Order deduction)
+      allow create: if request.auth != null && (
+        request.resource.data.userId == request.auth.uid ||
+        isParentOf(request.resource.data.userId) ||
+        hasRole('ADMIN') || 
+        hasRole('STAFF')
+      );
+
+      // Update: Admin/Staff (approve/decline)
+      allow update: if request.auth != null && (hasRole('ADMIN') || hasRole('STAFF'));
+    }
+
+    // --- Counters ---
+    match /counters/{counterId} {
+       allow read, write: if request.auth != null;
+    }
+  }
+}

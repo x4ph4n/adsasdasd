@@ -1,0 +1,1906 @@
+{
+  "application": "Canteen Management System",
+  "version": "1.0",
+  "designSystem": {
+    "colors": {
+      "primary": "#22C55E",
+      "primaryLight": "#4ADE80",
+      "primaryDark": "#16A34A",
+      "secondary": "#10B981",
+      "background": "#FFFFFF",
+      "backgroundSecondary": "#F3F4F6",
+      "textPrimary": "#1F2937",
+      "textSecondary": "#6B7280",
+      "success": "#10B981",
+      "warning": "#F59E0B",
+      "danger": "#EF4444",
+      "orange": "#FB923C",
+      "yellow": "#FCD34D"
+    },
+    "borderRadius": {
+      "small": "8px",
+      "medium": "12px",
+      "large": "16px",
+      "xlarge": "24px",
+      "full": "9999px"
+    },
+    "spacing": {
+      "xs": "4px",
+      "sm": "8px",
+      "md": "16px",
+      "lg": "24px",
+      "xl": "32px"
+    },
+    "typography": {
+      "h1": "32px",
+      "h2": "24px",
+      "h3": "20px",
+      "body": "16px",
+      "small": "14px",
+      "caption": "12px"
+    }
+  },
+  "commonComponents": {
+    "bottomNavigation": {
+      "type": "fixed",
+      "position": "bottom",
+      "height": "80px",
+      "backgroundColor": "#22C55E",
+      "borderRadius": "32px 32px 0 0",
+      "margin": "0 16px",
+      "items": 5,
+      "activeIndicator": "white background circle",
+      "iconSize": "24px",
+      "labelSize": "14px"
+    },
+    "header": {
+      "height": "200px",
+      "backgroundColor": "#4ADE80",
+      "borderRadius": "0 0 32px 32px",
+      "elements": {
+        "backButton": {
+          "position": "top-left",
+          "margin": "16px",
+          "icon": "chevron-left"
+        },
+        "title": {
+          "position": "center",
+          "fontSize": "24px",
+          "fontWeight": "bold"
+        },
+        "actionButton": {
+          "position": "top-right",
+          "margin": "16px",
+          "icon": "settings"
+        }
+      }
+    },
+    "searchBar": {
+      "height": "56px",
+      "backgroundColor": "#E5F5EC",
+      "borderRadius": "16px",
+      "padding": "16px",
+      "icon": "search",
+      "placeholder": "Search..."
+    },
+    "card": {
+      "backgroundColor": "#FFFFFF",
+      "borderRadius": "16px",
+      "padding": "16px",
+      "shadow": "0 2px 8px rgba(0,0,0,0.08)"
+    },
+    "badge": {
+      "pending": {
+        "backgroundColor": "#FEF3C7",
+        "textColor": "#F59E0B",
+        "borderRadius": "12px",
+        "padding": "4px 12px"
+      },
+      "approved": {
+        "backgroundColor": "#D1FAE5",
+        "textColor": "#10B981",
+        "borderRadius": "12px",
+        "padding": "4px 12px"
+      },
+      "completed": {
+        "backgroundColor": "#D1FAE5",
+        "textColor": "#10B981",
+        "borderRadius": "12px",
+        "padding": "4px 12px"
+      },
+      "preparing": {
+        "backgroundColor": "#DBEAFE",
+        "textColor": "#3B82F6",
+        "borderRadius": "12px",
+        "padding": "4px 12px"
+      },
+      "cancelled": {
+        "backgroundColor": "#FEE2E2",
+        "textColor": "#EF4444",
+        "borderRadius": "12px",
+        "padding": "4px 12px"
+      },
+      "low": {
+        "backgroundColor": "#FEE2E2",
+        "textColor": "#EF4444",
+        "borderRadius": "12px",
+        "padding": "4px 8px"
+      }
+    },
+    "button": {
+      "primary": {
+        "backgroundColor": "#22C55E",
+        "textColor": "#FFFFFF",
+        "height": "56px",
+        "borderRadius": "16px",
+        "fontSize": "16px",
+        "fontWeight": "600"
+      },
+      "secondary": {
+        "backgroundColor": "#F3F4F6",
+        "textColor": "#1F2937",
+        "height": "48px",
+        "borderRadius": "12px"
+      }
+    }
+  },
+  "roles": {
+    "admin": {
+      "bottomNavigation": {
+        "items": [
+          {
+            "id": "home",
+            "label": "Home",
+            "icon": "grid",
+            "route": "/admin/dashboard"
+          },
+          {
+            "id": "orders",
+            "label": "Orders",
+            "icon": "shopping-cart",
+            "route": "/admin/orders"
+          },
+          {
+            "id": "topup",
+            "label": "Top-Up",
+            "icon": "wallet-cards",
+            "route": "/admin/topup"
+          },
+          {
+            "id": "inventory",
+            "label": "Inventory",
+            "icon": "package",
+            "route": "/admin/inventory"
+          },
+          {
+            "id": "alerts",
+            "label": "Alerts",
+            "icon": "bell",
+            "route": "/admin/alerts",
+            "badge": "notification count"
+          },
+          {
+            "id": "profile",
+            "label": "Profile",
+            "icon": "user",
+            "route": "/admin/profile"
+          }
+        ]
+      },
+      "screens": [
+        {
+          "id": "profile",
+          "name": "Profile",
+          "layout": {
+            "header": {
+              "height": "200px",
+              "backgroundColor": "#4ADE80",
+              "elements": [
+                {
+                  "type": "backButton",
+                  "position": "top-left",
+                  "icon": "chevron-left"
+                },
+                {
+                  "type": "title",
+                  "text": "Profile",
+                  "position": "center-top",
+                  "margin": "50px 0 0 0"
+                },
+                {
+                  "type": "settingsButton",
+                  "position": "top-right",
+                  "icon": "settings"
+                },
+                {
+                  "type": "avatar",
+                  "position": "center-bottom",
+                  "size": "120px",
+                  "backgroundColor": "#22C55E",
+                  "text": "AD",
+                  "textColor": "#FFFFFF",
+                  "fontSize": "48px",
+                  "borderRadius": "24px",
+                  "border": "4px solid white",
+                  "marginBottom": "-60px"
+                }
+              ]
+            },
+            "content": {
+              "backgroundColor": "#FFFFFF",
+              "padding": "80px 24px 24px 24px",
+              "sections": [
+                {
+                  "type": "infoCards",
+                  "items": [
+                    {
+                      "icon": "user",
+                      "iconColor": "#22C55E",
+                      "iconBackground": "#E5F5EC",
+                      "label": "Name",
+                      "value": "Admin User",
+                      "spacing": "16px"
+                    },
+                    {
+                      "icon": "mail",
+                      "iconColor": "#22C55E",
+                      "iconBackground": "#E5F5EC",
+                      "label": "Email",
+                      "value": "admin@gmail.com",
+                      "spacing": "16px"
+                    },
+                    {
+                      "icon": "shield",
+                      "iconColor": "#22C55E",
+                      "iconBackground": "#E5F5EC",
+                      "label": "Role",
+                      "value": "Administrator",
+                      "spacing": "16px"
+                    },
+                    {
+                      "icon": "lock",
+                      "iconColor": "#22C55E",
+                      "iconBackground": "#E5F5EC",
+                      "label": "Password",
+                      "value": "••••••••",
+                      "spacing": "16px"
+                    }
+                  ]
+                },
+                {
+                  "type": "quickLinks",
+                  "title": "QUICK LINKS",
+                  "marginTop": "32px",
+                  "items": [
+                    {
+                      "icon": "shopping-cart",
+                      "iconColor": "#F59E0B",
+                      "iconBackground": "#FEF3C7",
+                      "label": "Order Management",
+                      "chevron": true
+                    },
+                    {
+                      "icon": "package",
+                      "iconColor": "#22C55E",
+                      "iconBackground": "#E5F5EC",
+                      "label": "Inventory",
+                      "chevron": true
+                    }
+                  ]
+                }
+              ]
+            },
+            "overlay": {
+              "type": "logoutButton",
+              "position": "top-center",
+              "backgroundColor": "#FFFFFF",
+              "textColor": "#EF4444",
+              "icon": "logout",
+              "text": "Logout",
+              "borderRadius": "16px",
+              "padding": "16px 32px",
+              "marginTop": "110px"
+            }
+          }
+        },
+        {
+          "id": "orderManagement",
+          "name": "Order Management",
+          "layout": {
+            "header": {
+              "height": "auto",
+              "padding": "24px",
+              "backgroundColor": "#FFFFFF",
+              "elements": [
+                {
+                  "type": "title",
+                  "text": "Order Management",
+                  "fontSize": "32px",
+                  "fontWeight": "bold"
+                },
+                {
+                  "type": "subtitle",
+                  "text": "View and manage all incoming orders.",
+                  "fontSize": "16px",
+                  "color": "#6B7280",
+                  "marginTop": "8px"
+                }
+              ]
+            },
+            "content": {
+              "padding": "0 24px 24px 24px",
+              "elements": [
+                {
+                  "type": "searchBar",
+                  "placeholder": "Search orders...",
+                  "marginBottom": "16px"
+                },
+                {
+                  "type": "dropdown",
+                  "icon": "filter",
+                  "label": "All Orders",
+                  "backgroundColor": "#FFFFFF",
+                  "border": "1px solid #E5E7EB",
+                  "borderRadius": "12px",
+                  "height": "56px",
+                  "marginBottom": "16px"
+                },
+                {
+                  "type": "button",
+                  "variant": "secondary",
+                  "icon": "download",
+                  "text": "Export CSV",
+                  "marginBottom": "24px"
+                },
+                {
+                  "type": "orderList",
+                  "items": [
+                    {
+                      "structure": {
+                        "card": {
+                          "padding": "16px",
+                          "borderRadius": "16px",
+                          "backgroundColor": "#FFFFFF",
+                          "marginBottom": "12px"
+                        },
+                        "header": {
+                          "layout": "flex-row-space-between",
+                          "left": {
+                            "name": "bold, 18px",
+                            "orderId": "gray, 14px"
+                          },
+                          "right": {
+                            "badge": "status badge"
+                          }
+                        },
+                        "body": {
+                          "items": "gray, 16px",
+                          "marginTop": "8px"
+                        },
+                        "footer": {
+                          "layout": "flex-row-space-between",
+                          "left": {
+                            "price": "green, bold, 20px",
+                            "timestamp": "gray, 14px"
+                          },
+                          "right": {
+                            "actions": [
+                              {
+                                "type": "icon-button",
+                                "icon": "check",
+                                "color": "#22C55E"
+                              },
+                              {
+                                "type": "icon-button",
+                                "icon": "x",
+                                "color": "#EF4444"
+                              },
+                              {
+                                "type": "icon-button",
+                                "icon": "eye",
+                                "color": "#6B7280"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "totalSales",
+          "name": "Total Sales Analytics",
+          "layout": {
+            "header": {
+              "padding": "24px",
+              "elements": [
+                {
+                  "type": "backButton",
+                  "text": "Back to Dashboard",
+                  "icon": "arrow-left",
+                  "color": "#6B7280"
+                },
+                {
+                  "type": "title",
+                  "text": "Total Sales",
+                  "fontSize": "32px",
+                  "fontWeight": "bold",
+                  "marginTop": "16px"
+                },
+                {
+                  "type": "subtitle",
+                  "text": "Track your canteen sales performance",
+                  "color": "#6B7280",
+                  "marginTop": "8px"
+                }
+              ]
+            },
+            "content": {
+              "padding": "24px",
+              "sections": [
+                {
+                  "type": "metricsGrid",
+                  "layout": "2x2",
+                  "gap": "16px",
+                  "items": [
+                    {
+                      "label": "This Week",
+                      "value": "₱24,580",
+                      "badge": "+12.0% from last week",
+                      "badgeColor": "#22C55E",
+                      "icon": "peso",
+                      "iconBackground": "#E5F5EC",
+                      "highlight": "green border-left-4"
+                    },
+                    {
+                      "label": "Last Week",
+                      "value": "₱21,950",
+                      "icon": "peso",
+                      "iconBackground": "#F3F4F6"
+                    },
+                    {
+                      "label": "Daily Average",
+                      "value": "₱3,511",
+                      "icon": "trending-up",
+                      "iconBackground": "#E5F5EC"
+                    },
+                    {
+                      "label": "Best Day",
+                      "value": "₱6,200",
+                      "sublabel": "Friday",
+                      "icon": "trending-up",
+                      "iconBackground": "#FEF3C7",
+                      "iconColor": "#F59E0B"
+                    }
+                  ]
+                },
+                {
+                  "type": "chart",
+                  "chartType": "area",
+                  "title": "Daily Sales (This Week)",
+                  "marginTop": "32px",
+                  "height": "300px",
+                  "data": {
+                    "xAxis": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+                    "yAxis": {
+                      "min": 0,
+                      "max": 8000,
+                      "steps": [0, 2000, 4000, 6000, 8000],
+                      "format": "₱{value}k"
+                    },
+                    "lineColor": "#22C55E",
+                    "fillGradient": {
+                      "start": "#22C55E33",
+                      "end": "#22C55E00"
+                    }
+                  }
+                },
+                {
+                  "type": "chart",
+                  "chartType": "bar",
+                  "title": "Weekly Sales (This Month)",
+                  "marginTop": "32px",
+                  "height": "300px",
+                  "data": {
+                    "xAxis": ["Week 1", "Week 2", "Week 3", "Week 4"],
+                    "yAxis": {
+                      "min": 0,
+                      "max": 26000,
+                      "steps": [0, 7000, 13000, 20000, 26000],
+                      "format": "₱{value}k"
+                    },
+                    "barColor": "#22C55E",
+                    "barWidth": "40%",
+                    "borderRadius": "8px 8px 0 0"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "topUpRequests",
+          "name": "Top-Up Requests",
+          "layout": {
+            "header": {
+              "padding": "24px",
+              "elements": [
+                {
+                  "type": "title",
+                  "text": "Top-Up Requests",
+                  "fontSize": "32px",
+                  "fontWeight": "bold"
+                },
+                {
+                  "type": "subtitle",
+                  "text": "Manage student balance top-up requests.",
+                  "color": "#6B7280",
+                  "marginTop": "8px"
+                }
+              ]
+            },
+            "content": {
+              "padding": "0 24px 24px 24px",
+              "elements": [
+                {
+                  "type": "searchBar",
+                  "placeholder": "Search by name or ID...",
+                  "marginBottom": "24px"
+                },
+                {
+                  "type": "requestList",
+                  "items": [
+                    {
+                      "structure": {
+                        "card": {
+                          "padding": "16px",
+                          "borderRadius": "16px",
+                          "backgroundColor": "#FFFFFF",
+                          "marginBottom": "12px"
+                        },
+                        "header": {
+                          "layout": "flex-row-space-between",
+                          "left": {
+                            "name": "bold, 18px",
+                            "ids": "gray, 14px"
+                          },
+                          "right": {
+                            "badge": "status badge"
+                          }
+                        },
+                        "body": {
+                          "amount": "green, bold, 24px",
+                          "paymentInfo": "gray, 14px"
+                        },
+                        "footer": {
+                          "layout": "flex-row-end",
+                          "actions": [
+                            {
+                              "type": "icon-button",
+                              "icon": "check",
+                              "color": "#22C55E",
+                              "size": "32px"
+                            },
+                            {
+                              "type": "icon-button",
+                              "icon": "x",
+                              "color": "#EF4444",
+                              "size": "32px"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "notifications",
+          "name": "Notifications",
+          "layout": {
+            "header": {
+              "padding": "24px",
+              "elements": [
+                {
+                  "type": "headerRow",
+                  "layout": "flex-row-space-between",
+                  "left": {
+                    "title": "Notifications",
+                    "fontSize": "32px",
+                    "fontWeight": "bold"
+                  },
+                  "right": {
+                    "action": {
+                      "text": "Mark all read",
+                      "icon": "check",
+                      "color": "#22C55E"
+                    }
+                  }
+                },
+                {
+                  "type": "subtitle",
+                  "text": "3 unread notifications",
+                  "color": "#6B7280",
+                  "marginTop": "8px"
+                }
+              ]
+            },
+            "content": {
+              "padding": "0 24px 24px 24px",
+              "elements": [
+                {
+                  "type": "notificationList",
+                  "items": [
+                    {
+                      "structure": {
+                        "card": {
+                          "padding": "16px",
+                          "borderRadius": "16px",
+                          "backgroundColor": "#F0FDF4",
+                          "marginBottom": "12px"
+                        },
+                        "layout": "flex-row",
+                        "icon": {
+                          "size": "48px",
+                          "backgroundColor": "#E5F5EC",
+                          "borderRadius": "12px",
+                          "iconColor": "#22C55E"
+                        },
+                        "content": {
+                          "title": "bold, 16px",
+                          "description": "gray, 14px",
+                          "timestamp": "gray, 12px, with clock icon"
+                        },
+                        "indicator": {
+                          "type": "dot",
+                          "color": "#22C55E",
+                          "size": "8px",
+                          "position": "top-right"
+                        }
+                      },
+                      "types": [
+                        {
+                          "name": "newOrder",
+                          "icon": "package",
+                          "backgroundColor": "#E5F5EC",
+                          "iconColor": "#22C55E"
+                        },
+                        {
+                          "name": "topUpRequest",
+                          "icon": "wallet",
+                          "backgroundColor": "#E5F5EC",
+                          "iconColor": "#22C55E"
+                        },
+                        {
+                          "name": "lowStock",
+                          "icon": "alert-triangle",
+                          "backgroundColor": "#FEF3C7",
+                          "iconColor": "#F59E0B"
+                        },
+                        {
+                          "name": "orderCompleted",
+                          "icon": "package",
+                          "backgroundColor": "#E5F5EC",
+                          "iconColor": "#22C55E"
+                        },
+                        {
+                          "name": "report",
+                          "icon": "bell",
+                          "backgroundColor": "#F3F4F6",
+                          "iconColor": "#6B7280"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "dashboard",
+          "name": "Dashboard",
+          "layout": {
+            "header": {
+              "padding": "24px",
+              "elements": [
+                {
+                  "type": "greeting",
+                  "text": "Good Morning, Admin!",
+                  "fontSize": "32px",
+                  "fontWeight": "bold"
+                },
+                {
+                  "type": "subtitle",
+                  "text": "Here's your canteen overview for today",
+                  "color": "#6B7280",
+                  "marginTop": "8px"
+                }
+              ]
+            },
+            "content": {
+              "padding": "0 24px 24px 24px",
+              "sections": [
+                {
+                  "type": "metricsGrid",
+                  "layout": "2x2",
+                  "gap": "16px",
+                  "marginBottom": "24px",
+                  "items": [
+                    {
+                      "label": "Total Sales",
+                      "value": "₱24,580",
+                      "badge": "+12%",
+                      "icon": "peso",
+                      "iconBackground": "#E5F5EC",
+                      "highlight": "green-border-left-4"
+                    },
+                    {
+                      "label": "Active Users",
+                      "value": "342",
+                      "badge": "+8%",
+                      "icon": "users",
+                      "iconBackground": "#E5F5EC"
+                    },
+                    {
+                      "label": "Pending Orders",
+                      "value": "18",
+                      "icon": "clock",
+                      "iconBackground": "#FEF3C7",
+                      "highlight": "yellow-border-left-4"
+                    },
+                    {
+                      "label": "Low Stock",
+                      "value": "4",
+                      "icon": "alert-triangle",
+                      "iconBackground": "#FEF3C7",
+                      "highlight": "yellow-border-left-4"
+                    }
+                  ]
+                },
+                {
+                  "type": "topSelling",
+                  "title": "Top Selling This Week",
+                  "action": {
+                    "text": "View Inventory",
+                    "color": "#22C55E"
+                  },
+                  "layout": "grid-2-columns",
+                  "gap": "16px",
+                  "items": [
+                    {
+                      "structure": {
+                        "image": {
+                          "size": "140px",
+                          "borderRadius": "12px"
+                        },
+                        "name": "bold, 16px",
+                        "stats": {
+                          "sold": "gray, 14px, with trending icon",
+                          "revenue": "green, bold, 18px"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "inventory",
+          "name": "Inventory",
+          "layout": {
+            "header": {
+              "padding": "24px",
+              "elements": [
+                {
+                  "type": "title",
+                  "text": "Inventory",
+                  "fontSize": "32px",
+                  "fontWeight": "bold"
+                },
+                {
+                  "type": "subtitle",
+                  "text": "Track and manage your canteen inventory.",
+                  "color": "#6B7280",
+                  "marginTop": "8px"
+                }
+              ]
+            },
+            "content": {
+              "padding": "0 24px 24px 24px",
+              "elements": [
+                {
+                  "type": "searchBar",
+                  "placeholder": "Search inventory...",
+                  "marginBottom": "16px"
+                },
+                {
+                  "type": "button",
+                  "variant": "primary",
+                  "icon": "plus",
+                  "text": "Add Item",
+                  "marginBottom": "16px"
+                },
+                {
+                  "type": "alert",
+                  "icon": "alert-triangle",
+                  "iconColor": "#F59E0B",
+                  "backgroundColor": "#FEF3C7",
+                  "text": "4 items are critically low on stock.",
+                  "marginBottom": "24px"
+                },
+                {
+                  "type": "inventoryList",
+                  "items": [
+                    {
+                      "structure": {
+                        "card": {
+                          "padding": "16px",
+                          "borderRadius": "16px",
+                          "backgroundColor": "#FFFFFF",
+                          "marginBottom": "12px"
+                        },
+                        "header": {
+                          "layout": "flex-row-space-between",
+                          "left": {
+                            "name": "bold, 20px",
+                            "badge": "category badge (Staple/Meat)"
+                          },
+                          "right": {
+                            "editButton": "icon-button",
+                            "lowBadge": "optional red badge"
+                          }
+                        },
+                        "body": {
+                          "quantity": "green/red, bold, 24px",
+                          "progressBar": {
+                            "height": "8px",
+                            "borderRadius": "4px",
+                            "color": "green/red based on stock"
+                          },
+                          "percentage": "right-aligned"
+                        },
+                        "footer": {
+                          "layout": "flex-row-space-between",
+                          "price": "green, bold, 18px",
+                          "date": "gray, 14px"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "student": {
+      "bottomNavigation": {
+        "items": [
+          {
+            "id": "home",
+            "label": "Home",
+            "icon": "home",
+            "route": "/student/home"
+          },
+          {
+            "id": "menu",
+            "label": "Menu",
+            "icon": "utensils",
+            "route": "/student/menu"
+          },
+          {
+            "id": "wallet",
+            "label": "Wallet",
+            "icon": "wallet",
+            "route": "/student/wallet"
+          },
+          {
+            "id": "cart",
+            "label": "Cart",
+            "icon": "shopping-cart",
+            "route": "/student/cart",
+            "badge": "item count"
+          },
+          {
+            "id": "profile",
+            "label": "Profile",
+            "icon": "user",
+            "route": "/student/profile"
+          }
+        ]
+      },
+      "screens": [
+        {
+          "id": "menu",
+          "name": "Menu",
+          "variations": [
+            {
+              "view": "grid",
+              "layout": {
+                "header": {
+                  "padding": "24px",
+                  "elements": [
+                    {
+                      "type": "searchBar",
+                      "placeholder": "Search",
+                      "marginBottom": "16px"
+                    },
+                    {
+                      "type": "categoryTabs",
+                      "layout": "horizontal-scroll",
+                      "gap": "12px",
+                      "items": [
+                        {
+                          "id": "recess",
+                          "label": "Recess",
+                          "icon": "burger",
+                          "activeColor": "#22C55E",
+                          "inactiveColor": "#E5E7EB"
+                        },
+                        {
+                          "id": "lunch",
+                          "label": "Lunch",
+                          "icon": "bowl",
+                          "activeColor": "#22C55E",
+                          "inactiveColor": "#E5E7EB"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "controls": {
+                  "padding": "0 24px",
+                  "elements": [
+                    {
+                      "type": "sortToggle",
+                      "layout": "flex-row-space-between",
+                      "left": {
+                        "text": "Sort By Popular",
+                        "color": "#22C55E"
+                      },
+                      "right": {
+                        "viewToggle": {
+                          "options": ["grid", "list"],
+                          "activeColor": "#22C55E"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "content": {
+                  "padding": "24px",
+                  "layout": "grid-2-columns",
+                  "gap": "16px",
+                  "itemCard": {
+                    "structure": {
+                      "image": {
+                        "height": "140px",
+                        "borderRadius": "12px",
+                        "objectFit": "cover"
+                      },
+                      "name": "bold, 16px, marginTop: 8px",
+                      "rating": {
+                        "layout": "flex-row",
+                        "value": "14px",
+                        "icon": "star",
+                        "iconColor": "#FCD34D",
+                        "backgroundColor": "#E5F5EC",
+                        "padding": "4px 8px",
+                        "borderRadius": "8px"
+                      },
+                      "footer": {
+                        "layout": "flex-row-space-between",
+                        "price": "green, bold, 20px",
+                        "addButton": {
+                          "size": "40px",
+                          "backgroundColor": "#22C55E",
+                          "icon": "plus",
+                          "iconColor": "white",
+                          "borderRadius": "12px"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "view": "list",
+              "layout": {
+                "header": "same as grid view",
+                "controls": "same as grid view",
+                "content": {
+                  "padding": "24px",
+                  "layout": "vertical-list",
+                  "gap": "16px",
+                  "itemCard": {
+                    "structure": {
+                      "layout": "flex-row",
+                      "image": {
+                        "size": "80px",
+                        "borderRadius": "12px"
+                      },
+                      "content": {
+                        "name": "bold, 16px",
+                        "description": "gray, 14px, truncated",
+                        "price": "green, bold, 18px"
+                      },
+                      "addButton": {
+                        "size": "48px",
+                        "backgroundColor": "#22C55E",
+                        "icon": "plus",
+                        "borderRadius": "12px"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "cart",
+          "name": "My Cart",
+          "states": [
+            {
+              "state": "withItems",
+              "layout": {
+                "header": {
+                  "height": "200px",
+                  "backgroundColor": "#4ADE80",
+                  "borderRadius": "0 0 32px 32px",
+                  "elements": [
+                    {
+                      "type": "backButton",
+                      "position": "top-left",
+                      "icon": "chevron-left"
+                    },
+                    {
+                      "type": "title",
+                      "text": "My Cart",
+                      "position": "center"
+                    },
+                    {
+                      "type": "cartIcon",
+                      "position": "center-bottom",
+                      "size": "80px",
+                      "backgroundColor": "white",
+                      "icon": "shopping-cart",
+                      "iconColor": "#22C55E",
+                      "badge": "item count",
+                      "marginBottom": "-40px"
+                    }
+                  ]
+                },
+                "content": {
+                  "padding": "60px 24px 24px 24px",
+                  "elements": [
+                    {
+                      "type": "itemCount",
+                      "text": "You have {count} items in your cart",
+                      "textAlign": "center",
+                      "color": "#6B7280",
+                      "marginBottom": "24px"
+                    },
+                    {
+                      "type": "cartItemsList",
+                      "items": [
+                        {
+                          "structure": {
+                            "layout": "flex-row",
+                            "image": {
+                              "size": "60px",
+                              "borderRadius": "12px",
+                              "backgroundColor": "#FEF3C7"
+                            },
+                            "content": {
+                              "name": "bold, 16px",
+                              "price": "green, bold, 18px"
+                            },
+                            "quantityControl": {
+                              "layout": "flex-row",
+                              "buttons": {
+                                "size": "32px",
+                                "borderRadius": "8px",
+                                "backgroundColor": "#F3F4F6"
+                              },
+                              "display": {
+                                "fontSize": "18px",
+                                "padding": "0 16px"
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "orderSummary",
+                      "title": "Order Summary",
+                      "marginTop": "24px",
+                      "items": [
+                        {
+                          "label": "Subtotal",
+                          "value": "₱{amount}",
+                          "fontSize": "16px"
+                        },
+                        {
+                          "label": "Tax (5%)",
+                          "value": "₱{amount}",
+                          "fontSize": "16px"
+                        },
+                        {
+                          "type": "divider",
+                          "marginTop": "16px",
+                          "marginBottom": "16px"
+                        },
+                        {
+                          "label": "Total",
+                          "value": "₱{amount}",
+                          "fontSize": "24px",
+                          "fontWeight": "bold",
+                          "valueColor": "#22C55E"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "button",
+                      "variant": "primary",
+                      "text": "Proceed to Checkout",
+                      "marginTop": "24px"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "state": "empty",
+              "layout": {
+                "header": "same as withItems",
+                "content": {
+                  "padding": "60px 24px",
+                  "elements": [
+                    {
+                      "type": "emptyState",
+                      "layout": "centered-vertical",
+                      "icon": {
+                        "name": "shopping-cart",
+                        "size": "120px",
+                        "color": "#D1D5DB",
+                        "backgroundColor": "#F3F4F6",
+                        "borderRadius": "60px",
+                        "padding": "32px"
+                      },
+                      "title": {
+                        "text": "Your cart is empty",
+                        "fontSize": "24px",
+                        "fontWeight": "bold",
+                        "marginTop": "24px"
+                      },
+                      "subtitle": {
+                        "text": "Add items from the menu to get started",
+                        "fontSize": "16px",
+                        "color": "#6B7280",
+                        "marginTop": "8px"
+                      },
+                      "action": {
+                        "type": "button",
+                        "variant": "primary",
+                        "text": "Browse Menu",
+                        "marginTop": "32px"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "checkout",
+          "name": "Checkout",
+          "layout": {
+            "header": {
+              "height": "180px",
+              "backgroundColor": "#4ADE80",
+              "borderRadius": "0 0 32px 32px",
+              "elements": [
+                {
+                  "type": "backButton",
+                  "position": "top-left"
+                },
+                {
+                  "type": "title",
+                  "text": "Checkout",
+                  "position": "center-top",
+                  "marginTop": "50px"
+                },
+                {
+                  "type": "badge",
+                  "text": "{count} items • ₱{amount}",
+                  "position": "center-bottom",
+                  "backgroundColor": "rgba(255,255,255,0.3)",
+                  "textColor": "white",
+                  "borderRadius": "20px",
+                  "padding": "12px 24px",
+                  "marginBottom": "24px"
+                }
+              ]
+            },
+            "content": {
+              "padding": "24px",
+              "sections": [
+                {
+                  "type": "pickupLocation",
+                  "icon": "map-pin",
+                  "iconColor": "#22C55E",
+                  "title": "Pickup Location",
+                  "location": "Canteen Counter 1",
+                  "time": "Ready in ~15 minutes",
+                  "marginBottom": "24px"
+                },
+                {
+                  "type": "orderSummary",
+                  "title": "Order Summary",
+                  "action": {
+                    "text": "Edit",
+                    "color": "#22C55E"
+                  },
+                  "items": [
+                    {
+                      "structure": {
+                        "layout": "flex-row",
+                        "image": "60px, borderRadius 12px",
+                        "content": {
+                          "name": "bold, 16px",
+                          "quantity": "gray, 14px"
+                        },
+                        "price": "green, bold, 18px"
+                      }
+                    }
+                  ],
+                  "marginBottom": "24px"
+                },
+                {
+                  "type": "paymentMethod",
+                  "icon": "credit-card",
+                  "iconColor": "#22C55E",
+                  "title": "Payment Method",
+                  "options": [
+                    {
+                      "id": "cash",
+                      "icon": "banknote",
+                      "label": "Cash",
+                      "sublabel": "Pay at Counter",
+                      "borderColor": "#22C55E",
+                      "selected": true
+                    },
+                    {
+                      "id": "wallet",
+                      "icon": "wallet",
+                      "label": "Wallet",
+                      "sublabel": "Bal: ₱1,250",
+                      "borderColor": "#E5E7EB",
+                      "selected": false
+                    }
+                  ],
+                  "marginBottom": "24px"
+                },
+                {
+                  "type": "priceSummary",
+                  "items": [
+                    {
+                      "label": "Subtotal",
+                      "value": "₱45.00"
+                    },
+                    {
+                      "label": "Tax (5%)",
+                      "value": "₱2.00"
+                    }
+                  ],
+                  "total": {
+                    "label": "Total",
+                    "value": "₱47.00",
+                    "fontSize": "24px",
+                    "color": "#22C55E"
+                  },
+                  "marginBottom": "24px"
+                },
+                {
+                  "type": "button",
+                  "variant": "primary",
+                  "text": "Place Order • ₱47.00",
+                  "height": "56px"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "home",
+          "name": "Student Home",
+          "layout": {
+            "header": {
+              "padding": "24px",
+              "elements": [
+                {
+                  "type": "greeting",
+                  "text": "Good Morning, Student!",
+                  "fontSize": "32px",
+                  "fontWeight": "bold"
+                },
+                {
+                  "type": "subtitle",
+                  "text": "Start your day with a delicious meal!",
+                  "color": "#6B7280",
+                  "marginTop": "8px"
+                }
+              ]
+            },
+            "content": {
+              "padding": "0 24px 24px 24px",
+              "sections": [
+                {
+                  "type": "walletCard",
+                  "backgroundColor": "#22C55E",
+                  "borderRadius": "16px",
+                  "padding": "24px",
+                  "marginBottom": "24px",
+                  "elements": [
+                    {
+                      "label": "Wallet Balance",
+                      "color": "white",
+                      "fontSize": "14px"
+                    },
+                    {
+                      "value": "₱1,250.00",
+                      "color": "white",
+                      "fontSize": "40px",
+                      "fontWeight": "bold",
+                      "marginTop": "8px"
+                    },
+                    {
+                      "button": {
+                        "text": "Top Up Balance",
+                        "backgroundColor": "rgba(255,255,255,0.2)",
+                        "textColor": "white",
+                        "icon": "chevron-right",
+                        "borderRadius": "12px",
+                        "padding": "12px 24px",
+                        "marginTop": "16px"
+                      }
+                    },
+                    {
+                      "icon": {
+                        "name": "wallet",
+                        "position": "top-right",
+                        "size": "64px",
+                        "color": "rgba(255,255,255,0.2)"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "todaySchedule",
+                  "icon": "clock",
+                  "iconColor": "#22C55E",
+                  "title": "Today's Schedule",
+                  "marginBottom": "24px",
+                  "items": [
+                    {
+                      "id": "recess",
+                      "icon": "coffee",
+                      "iconColor": "#F59E0B",
+                      "iconBackground": "#FEF3C7",
+                      "label": "Recess",
+                      "time": "10:00 AM - 10:30 AM",
+                      "borderRadius": "12px"
+                    },
+                    {
+                      "id": "lunch",
+                      "icon": "utensils",
+                      "iconColor": "#22C55E",
+                      "iconBackground": "#E5F5EC",
+                      "label": "Lunch",
+                      "time": "12:00 PM - 1:00 PM",
+                      "borderRadius": "12px"
+                    }
+                  ]
+                },
+                {
+                  "type": "popularThisWeek",
+                  "icon": "flame",
+                  "iconColor": "#EF4444",
+                  "title": "Popular This Week",
+                  "action": {
+                    "text": "View Menu",
+                    "color": "#22C55E"
+                  },
+                  "layout": "horizontal-scroll",
+                  "gap": "16px",
+                  "items": [
+                    {
+                      "structure": {
+                        "width": "180px",
+                        "image": {
+                          "size": "140px",
+                          "borderRadius": "12px"
+                        },
+                        "name": "bold, 16px",
+                        "rating": {
+                          "value": "14px",
+                          "icon": "star",
+                          "backgroundColor": "#E5F5EC"
+                        },
+                        "price": "green, bold, 18px"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "profile",
+          "name": "Student Profile",
+          "layout": {
+            "header": {
+              "height": "200px",
+              "backgroundColor": "#4ADE80",
+              "elements": [
+                {
+                  "type": "backButton",
+                  "position": "top-left"
+                },
+                {
+                  "type": "title",
+                  "text": "Profile",
+                  "position": "center-top",
+                  "marginTop": "50px"
+                },
+                {
+                  "type": "settingsButton",
+                  "position": "top-right",
+                  "icon": "settings"
+                },
+                {
+                  "type": "avatar",
+                  "position": "center-bottom",
+                  "size": "120px",
+                  "backgroundColor": "#22C55E",
+                  "text": "ST",
+                  "textColor": "white",
+                  "fontSize": "48px",
+                  "borderRadius": "24px",
+                  "border": "4px solid white",
+                  "marginBottom": "-60px"
+                }
+              ]
+            },
+            "content": {
+              "backgroundColor": "#FFFFFF",
+              "padding": "80px 24px 24px 24px",
+              "sections": [
+                {
+                  "type": "infoCards",
+                  "items": [
+                    {
+                      "icon": "user",
+                      "iconColor": "#22C55E",
+                      "iconBackground": "#E5F5EC",
+                      "label": "Name",
+                      "value": "Student User"
+                    },
+                    {
+                      "icon": "mail",
+                      "iconColor": "#22C55E",
+                      "iconBackground": "#E5F5EC",
+                      "label": "Email",
+                      "value": "student@gmail.com"
+                    },
+                    {
+                      "icon": "id-card",
+                      "iconColor": "#22C55E",
+                      "iconBackground": "#E5F5EC",
+                      "label": "Student ID",
+                      "value": "STU-2024-001"
+                    },
+                    {
+                      "icon": "lock",
+                      "iconColor": "#22C55E",
+                      "iconBackground": "#E5F5EC",
+                      "label": "Password",
+                      "value": "••••••••"
+                    }
+                  ]
+                },
+                {
+                  "type": "quickLinks",
+                  "title": "QUICK LINKS",
+                  "marginTop": "32px",
+                  "items": [
+                    {
+                      "icon": "credit-card",
+                      "iconColor": "#F59E0B",
+                      "iconBackground": "#FEF3C7",
+                      "label": "Payment Details",
+                      "chevron": true
+                    },
+                    {
+                      "icon": "clock",
+                      "iconColor": "#22C55E",
+                      "iconBackground": "#E5F5EC",
+                      "label": "Order History",
+                      "chevron": true
+                    }
+                  ]
+                },
+                {
+                  "type": "button",
+                  "variant": "primary",
+                  "text": "Edit Profile",
+                  "icon": "edit",
+                  "marginTop": "32px"
+                }
+              ]
+            },
+            "overlay": {
+              "type": "logoutButton",
+              "position": "top-center",
+              "backgroundColor": "#FFFFFF",
+              "textColor": "#EF4444",
+              "icon": "logout",
+              "text": "Logout",
+              "borderRadius": "16px",
+              "padding": "16px 32px",
+              "marginTop": "110px"
+            }
+          }
+        },
+        {
+          "id": "wallet",
+          "name": "Wallet",
+          "layout": {
+            "header": {
+              "padding": "24px",
+              "elements": [
+                {
+                  "type": "title",
+                  "text": "Wallet",
+                  "fontSize": "32px",
+                  "fontWeight": "bold"
+                },
+                {
+                  "type": "subtitle",
+                  "text": "Manage your canteen balance",
+                  "color": "#6B7280",
+                  "marginTop": "8px"
+                }
+              ]
+            },
+            "content": {
+              "padding": "0 24px 24px 24px",
+              "sections": [
+                {
+                  "type": "balanceCard",
+                  "backgroundColor": "#22C55E",
+                  "borderRadius": "16px",
+                  "padding": "24px",
+                  "marginBottom": "24px",
+                  "elements": [
+                    {
+                      "label": "Current Balance",
+                      "color": "white",
+                      "fontSize": "14px"
+                    },
+                    {
+                      "value": "₱1,250.00",
+                      "color": "white",
+                      "fontSize": "48px",
+                      "fontWeight": "bold",
+                      "marginTop": "8px"
+                    },
+                    {
+                      "studentId": "Student ID: 2024-0001",
+                      "color": "rgba(255,255,255,0.8)",
+                      "fontSize": "14px",
+                      "marginTop": "8px"
+                    },
+                    {
+                      "button": {
+                        "text": "Top Up",
+                        "icon": "plus",
+                        "backgroundColor": "white",
+                        "textColor": "#22C55E",
+                        "borderRadius": "12px",
+                        "height": "48px",
+                        "marginTop": "16px"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "recentTransactions",
+                  "title": "Recent Transactions",
+                  "fontSize": "24px",
+                  "fontWeight": "bold",
+                  "marginBottom": "16px",
+                  "items": [
+                    {
+                      "structure": {
+                        "layout": "flex-row",
+                        "icon": {
+                          "size": "48px",
+                          "borderRadius": "12px"
+                        },
+                        "content": {
+                          "title": "bold, 16px",
+                          "timestamp": "gray, 14px"
+                        },
+                        "amount": {
+                          "fontSize": "18px",
+                          "fontWeight": "bold",
+                          "color": "green for positive, red for negative"
+                        }
+                      },
+                      "types": [
+                        {
+                          "type": "expense",
+                          "icon": "arrow-up-right",
+                          "iconColor": "#EF4444",
+                          "iconBackground": "#FEE2E2",
+                          "amountPrefix": "-"
+                        },
+                        {
+                          "type": "topup",
+                          "icon": "arrow-down-left",
+                          "iconColor": "#22C55E",
+                          "iconBackground": "#E5F5EC",
+                          "amountPrefix": "+"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "modal": {
+              "topUpBalance": {
+                "title": "Top Up Balance",
+                "backgroundColor": "white",
+                "borderRadius": "24px 24px 0 0",
+                "padding": "24px",
+                "closeButton": {
+                  "position": "top-right",
+                  "icon": "x"
+                },
+                "elements": [
+                  {
+                    "type": "quickAmounts",
+                    "layout": "grid-2x2",
+                    "gap": "12px",
+                    "amounts": ["₱100", "₱200", "₱500", "₱1000"],
+                    "selectedColor": "#22C55E",
+                    "unselectedColor": "#F3F4F6"
+                  },
+                  {
+                    "type": "customAmount",
+                    "label": "Or enter custom amount",
+                    "marginTop": "24px",
+                    "input": {
+                      "placeholder": "100",
+                      "height": "56px",
+                      "borderRadius": "12px",
+                      "border": "1px solid #E5E7EB"
+                    }
+                  },
+                  {
+                    "type": "paymentMethod",
+                    "label": "Payment Method",
+                    "marginTop": "24px",
+                    "options": [
+                      {
+                        "id": "gcash",
+                        "icon": "smartphone",
+                        "label": "GCash",
+                        "selected": false
+                      },
+                      {
+                        "id": "cash",
+                        "icon": "banknote",
+                        "label": "Cash",
+                        "selected": true
+                      }
+                    ]
+                  },
+                  {
+                    "type": "helperText",
+                    "text": "Tapping 'Pay with GCash' will open GCash where you can scan the payment QR.",
+                    "color": "#6B7280",
+                    "fontSize": "14px",
+                    "marginTop": "16px",
+                    "condition": "show when GCash selected"
+                  },
+                  {
+                    "type": "button",
+                    "variant": "primary",
+                    "text": "Request Top-Up / Pay with GCash",
+                    "marginTop": "24px",
+                    "dynamic": "text changes based on payment method"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "id": "orderHistory",
+          "name": "Order History",
+          "layout": {
+            "header": {
+              "padding": "24px",
+              "elements": [
+                {
+                  "type": "title",
+                  "text": "Order History",
+                  "fontSize": "32px",
+                  "fontWeight": "bold"
+                },
+                {
+                  "type": "subtitle",
+                  "text": "View your past orders",
+                  "color": "#6B7280",
+                  "marginTop": "8px"
+                }
+              ]
+            },
+            "stats": {
+              "layout": "grid-3-columns",
+              "padding": "0 24px",
+              "marginBottom": "24px",
+              "items": [
+                {
+                  "label": "Total Orders",
+                  "value": "8",
+                  "fontSize": "32px",
+                  "fontWeight": "bold"
+                },
+                {
+                  "label": "Completed",
+                  "value": "6",
+                  "fontSize": "32px",
+                  "fontWeight": "bold",
+                  "color": "#22C55E"
+                },
+                {
+                  "label": "Total Spent",
+                  "value": "₱475",
+                  "fontSize": "32px",
+                  "fontWeight": "bold",
+                  "color": "#22C55E"
+                }
+              ]
+            },
+            "content": {
+              "padding": "0 24px 24px 24px",
+              "elements": [
+                {
+                  "type": "searchBar",
+                  "placeholder": "Search orders...",
+                  "marginBottom": "16px"
+                },
+                {
+                  "type": "dropdown",
+                  "icon": "calendar",
+                  "label": "All Orders",
+                  "marginBottom": "24px"
+                },
+                {
+                  "type": "orderList",
+                  "items": [
+                    {
+                      "structure": {
+                        "card": {
+                          "padding": "16px",
+                          "borderRadius": "16px",
+                          "backgroundColor": "#FFFFFF",
+                          "marginBottom": "12px"
+                        },
+                        "header": {
+                          "layout": "flex-row",
+                          "icon": {
+                            "size": "48px",
+                            "borderRadius": "12px",
+                            "types": {
+                              "lunch": {
+                                "icon": "utensils",
+                                "color": "#22C55E",
+                                "background": "#E5F5EC"
+                              },
+                              "recess": {
+                                "icon": "coffee",
+                                "color": "#F59E0B",
+                                "background": "#FEF3C7"
+                              }
+                            }
+                          },
+                          "content": {
+                            "orderId": "bold, 16px",
+                            "items": "gray, 14px",
+                            "timestamp": "gray, 12px"
+                          },
+                          "badges": {
+                            "status": "right side",
+                            "category": "right side"
+                          }
+                        },
+                        "footer": {
+                          "price": "green, bold, 20px"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "interactionPatterns": {
+    "buttons": {
+      "tap": "scale 0.95, haptic feedback",
+      "disabled": "opacity 0.5, no interaction"
+    },
+    "cards": {
+      "tap": "navigate or expand",
+      "longPress": "show options menu"
+    },
+    "navigation": {
+      "bottomNav": "smooth transition, highlight active",
+      "backButton": "navigate back with slide animation"
+    },
+    "modals": {
+      "appearance": "slide up from bottom",
+      "dismissal": "slide down or tap outside"
+    },
+    "lists": {
+      "scroll": "smooth scroll with momentum",
+      "refresh": "pull to refresh on some screens"
+    }
+  },
+  "responsiveness": {
+    "breakpoints": {
+      "mobile": "320px - 768px",
+      "tablet": "769px - 1024px"
+    },
+    "adaptiveLayout": "All screens designed mobile-first"
+  },
+  "accessibility": {
+    "minimumTouchTarget": "44x44px",
+    "contrastRatio": "WCAG AA compliant",
+    "textScaling": "supports system text size",
+    "screenReader": "all interactive elements labeled"
+  },
+  "metadata": {
+    "description": "Complete UI layout specification for Canteen Management System covering admin and student roles",
+    "lastUpdated": "2025-12-18",
+    "totalScreensCaptured": 27,
+    "capturedScreens": {
+      "admin": 11,
+      "student": 16
+    }
+  }
+}

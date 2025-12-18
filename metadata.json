@@ -1,0 +1,5 @@
+{
+  "name": "SmartCanteen RFID",
+  "description": "A cashless canteen reservation system with RFID integration and wallet management.",
+  "requestFramePermissions": []
+}
